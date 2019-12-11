@@ -4,23 +4,23 @@ SQL Server Big Data cluster bundles Spark and HDFS together with SQL server. Azu
 
 ## Contents
 
-[PySpark Hello World](dataloading/hello_PySpark.ipynb)
+[PySpark Hello World](data-loading/hello_PySpark.ipynb)
 
-[Scala Hello World ](dataloading/hello_Scala.ipynb)
+[Scala Hello World ](data-loading/hello_Scala.ipynb)
 
-[SparkR Hello World ](dataloading/hello_sparkR.ipynb)
+[SparkR Hello World ](data-loading/hello_sparkR.ipynb)
 
-[DataLoading   - Transforming CSV to Parquet](dataloading/transform-csv-files.ipynb/)
+[Data Loading   - Transforming CSV to Parquet](data-loading/transform-csv-files.ipynb/)
 
 [Data Transfer - Spark to SQL using Spark JDBC connector](data-virtualization/spark_to_sql_jdbc.ipynb/)
 
-[Data Transfer - Spark to SQL using MSSQL Spark connector](data-virtualization/mssql_spark_connector.ipynb/)
+[Data Transfer - Spark to SQL using MSSQL Spark connector](data-virtualization/mssql_spark_connector_non_ad_pyspark.ipynb/)
 
 [Configure  - Configure a spark session using a notebook](config-install/configure_spark_session.ipynb/)
 
 [Install - Install 3rd party packages](config-install/installpackage_Spark.ipynb/)
 
-[Restful-Access - Access Spark in BDC via restful Livy APIs](restful-api-accessn/accessing_spark_via_livy.ipynb/)
+[Restful-Access - Access Spark in BDC via restful Livy APIs](restful-api-access/accessing_spark_via_livy.ipynb/)
 
 ## Instructions on how to run in Azure Data Studio
 

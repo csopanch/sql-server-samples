@@ -13,10 +13,11 @@ def execute_cmd (cmd):
     if (stderr is not None):
         raise Exception(stderr)
 
-SOURCE_DOCKER_REGISTRY = input("Provide Docker registry source - press ENTER for using `private-repo.microsoft.com`:") or "private-repo.microsoft.com"
-SOURCE_DOCKER_REPOSITORY = input("Provide Docker repository source - press ENTER for using `mssql-private-preview`:") or "mssql-private-preview"
-SOURCE_DOCKER_USERNAME = input("Provide Docker username for the source registry:")
-SOURCE_DOCKER_PASSWORD=getpass.getpass("Provide Docker password for the source registry:")
+SOURCE_DOCKER_REGISTRY = input("Provide Docker registry source - press ENTER for using `mcr.microsoft.com`:") or "mcr.microsoft.com"
+SOURCE_DOCKER_REPOSITORY = input("Provide Docker repository source - press ENTER for using `mssql/bdc`:") or "mssql/bdc"
+# Use this only if your source is a private Docker registry
+# SOURCE_DOCKER_USERNAME = input("Provide Docker username for the source registry:")
+# SOURCE_DOCKER_PASSWORD=getpass.getpass("Provide Docker password for the source registry:")
 SOURCE_DOCKER_TAG = input("Provide Docker tag for the images at the source: ") or "latest"
 
 TARGET_DOCKER_REGISTRY = input("Provide Docker registry target:")
@@ -25,33 +26,37 @@ TARGET_DOCKER_USERNAME = input("Provide Docker username for the target registry:
 TARGET_DOCKER_PASSWORD = getpass.getpass("Provide Docker password for the target registry:")
 TARGET_DOCKER_TAG = input("Provide Docker tag for the images at the target: ") or "latest"
 
-images = [  'mssql-appdeploy-init',
-            'mssql-monitor-fluentbit',
-            'mssql-monitor-collectd',
-            'mssql-server-data',
-            'mssql-hadoop',
-            'mssql-java',
-            'mssql-mlservices-pythonserver',
-            'mssql-mlservices-rserver',
-            'mssql-monitor-elasticsearch',
-            'mssql-monitor-influxdb',
-            'mssql-security-knox',
-            'mssql-mlserver-r-runtime',
-            'mssql-mlserver-py-runtime',
-            'mssql-controller',
-            'mssql-mleap-serving-runtime',
-            'mssql-server-controller',
-            'mssql-monitor-grafana',
-            'mssql-monitor-kibana',
-            'mssql-service-proxy',
-	    'mssql-app-service-proxy',
-	    'mssql-ssis-app-runtime',
-            'mssql-monitor-telegraf']
+images = ['mssql-app-service-proxy',
+          'mssql-control-watchdog'
+           'mssql-controller'
+           'mssql-dns'
+           'mssql-hadoop'
+           'mssql-mleap-serving-runtime'
+           'mssql-mlserver-py-runtime'
+           'mssql-mlserver-r-runtime'
+           'mssql-monitor-collectd'
+           'mssql-monitor-elasticsearch'
+           'mssql-monitor-fluentbit'
+           'mssql-monitor-grafana'
+           'mssql-monitor-influxdb'
+           'mssql-monitor-kibana'
+           'mssql-monitor-telegraf'
+           'mssql-security-domainctl'
+           'mssql-security-knox'
+           'mssql-security-support'
+           'mssql-server'
+           'mssql-server-controller'
+           'mssql-server-data'
+           'mssql-ha-operator'
+           'mssql-ha-supervisor'
+           'mssql-service-proxy'
+           'mssql-ssis-app-runtime']
 
-print("Execute docker login to source registry: " + SOURCE_DOCKER_REGISTRY)
-cmd = "docker login " + SOURCE_DOCKER_REGISTRY + " -u " + SOURCE_DOCKER_USERNAME + " -p " + SOURCE_DOCKER_PASSWORD
-execute_cmd(cmd)
-print("")
+# Use this only if your source is a private Docker registry
+# print("Execute docker login to source registry: " + SOURCE_DOCKER_REGISTRY)
+# cmd = "docker login " + SOURCE_DOCKER_REGISTRY + " -u " + SOURCE_DOCKER_USERNAME + " -p " + SOURCE_DOCKER_PASSWORD
+# execute_cmd(cmd)
+# print("")
 
 
 print("Pulling images from source repository: " + SOURCE_DOCKER_REGISTRY + "/" + SOURCE_DOCKER_REPOSITORY)

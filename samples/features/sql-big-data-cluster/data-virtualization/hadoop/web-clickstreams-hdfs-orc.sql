@@ -11,8 +11,9 @@ IF NOT EXISTS(SELECT * FROM sys.external_data_sources WHERE name = 'HadoopData')
     WITH(
             TYPE=HADOOP,
             LOCATION='hdfs://nmnode-0-svc:9000/',
-            RESOURCE_MANAGER_LOCATION='master-svc:8032'
+            RESOURCE_MANAGER_LOCATION='sparkhead-svc:8032'
     );
+
 
 -- Create file format for orc file with appropriate properties.
 --
